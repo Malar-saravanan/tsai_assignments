@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas16" width="16" height="16"></canvas>
+    <canvas id="canvas48" width="48" height="48"></canvas>
+    <canvas id="canvas128" width="128" height="128"></canvas>
+    
+    <script>
+        function drawIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Book icon
+            ctx.fillStyle = 'white';
+            ctx.font = `${size * 0.6}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('📖', size/2, size/2);
+            
+            // Progress indicator
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(size * 0.1, size * 0.8, size * 0.8, size * 0.1);
+        }
+        
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Draw icons
+        const canvas16 = document.getElementById('canvas16');
+        const canvas48 = document.getElementById('canvas48');
+        const canvas128 = document.getElementById('canvas128');
+        
+        drawIcon(canvas16, 16);
+        drawIcon(canvas48, 48);
+        drawIcon(canvas128, 128);
+        
+        // Download icons
+        downloadCanvas(canvas16, 'icon16.png');
+        downloadCanvas(canvas48, 'icon48.png');
+        downloadCanvas(canvas128, 'icon128.png');
+        
+        console.log('Icons generated! Check your downloads folder.');
+    </script>
+</body>
+</html>
