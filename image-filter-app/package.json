@@ -1,0 +1,28 @@
+{
+  "name": "ai-image-filter-demo",
+  "version": "1.0.0",
+  "description": "A simple web application demonstrating image convolution with custom 3x3 kernels",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "image-processing",
+    "convolution",
+    "ai",
+    "computer-vision",
+    "html5-canvas",
+    "javascript"
+  ],
+  "author": "AI Assistant",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-image-filter-demo.git"
+  },
+  "homepage": "https://github.com/yourusername/ai-image-filter-demo#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

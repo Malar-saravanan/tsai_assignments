@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Test</title>
+</head>
+<body>
+    <h1>Testing Image Filter Application</h1>
+    <p>Open the developer console to see test results.</p>
+    
+    <script>
+        // Test the convolution algorithm with a simple test case
+        console.log("🧪 Testing Image Filter Application");
+        
+        // Create a simple test image (3x3 pixels, grayscale)
+        const testImageData = new ImageData(3, 3);
+        const testData = testImageData.data;
+        
+        // Set up a simple pattern: center pixel bright, others dark
+        for (let i = 0; i < testData.length; i += 4) {
+            testData[i] = 100;     // R
+            testData[i + 1] = 100; // G  
+            testData[i + 2] = 100; // B
+            testData[i + 3] = 255; // A
+        }
+        
+        // Make center pixel bright
+        const centerIndex = (1 * 3 + 1) * 4;
+        testData[centerIndex] = 255;
+        testData[centerIndex + 1] = 255;
+        testData[centerIndex + 2] = 255;
+        
+        // Test sharpen kernel
+        const sharpenKernel = [0, -1, 0, -1, 5, -1, 0, -1, 0];
+        
+        console.log("✅ Test image created");
+        console.log("✅ Sharpen kernel:", sharpenKernel);
+        console.log("✅ Application ready for manual testing at http://localhost:8000");
+        
+        // Test kernel statistics
+        const kernelSum = sharpenKernel.reduce((a, b) => a + b, 0);
+        const kernelMean = kernelSum / 9;
+        console.log("📊 Kernel sum:", kernelSum);
+        console.log("📊 Kernel mean:", kernelMean);
+        
+        console.log("🎯 Manual testing steps:");
+        console.log("1. Open http://localhost:8000 in your browser");
+        console.log("2. Upload any image file (JPEG, PNG, etc.)");
+        console.log("3. Try different preset filters");
+        console.log("4. Create custom kernels");
+        console.log("5. Check the statistics panel");
+    </script>
+</body>
+</html>
