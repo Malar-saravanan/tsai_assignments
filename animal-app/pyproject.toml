@@ -1,0 +1,15 @@
+[project]
+name = "wildsnap-animal-app"
+version = "1.0.0"
+description = "WildSnap - A modern FastAPI web application for discovering animals and managing file uploads"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["fastapi", "file-upload", "animals", "web-app", "wildsnap"]
+license = {text = "MIT"}
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "python-multipart>=0.0.6",
+    "jinja2>=3.1.2",
+    "aiofiles>=23.2.1",
+]
