@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Filter Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #4f46e5;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .upload-area {
+            border: 3px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #4f46e5;
+            background-color: #f8fafc;
+        }
+
+        .upload-area.dragover {
+            border-color: #4f46e5;
+            background-color: #ede9fe;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 200px;
+            margin: 20px 0;
+        }
+
+        .filter-input {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .preset-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .preset-btn {
+            background: #f3f4f6;
+            border: 2px solid #d1d5db;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .preset-btn:hover {
+            background: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .image-box {
+            text-align: center;
+        }
+
+        .image-box h3 {
+            margin-bottom: 15px;
+            color: #374151;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .canvas-container {
+            display: none;
+        }
+
+        .apply-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+        }
+
+        .apply-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .stats {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .stats h3 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #4f46e5;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .image-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 AI Image Filter Demo</h1>
+            <p>Apply custom 3x3 convolution kernels to your images</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📤 Upload Image</h2>
+                <div class="upload-area" id="uploadArea">
+                    <p>📁 Click to select an image or drag & drop here</p>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔧 Custom 3x3 Convolution Kernel</h2>
+                <p>Enter your custom filter values (each cell represents a weight in the 3x3 kernel):</p>
+                
+                <div class="filter-grid" id="filterGrid">
+                    <input type="number" class="filter-input" value="0" step="0.1">
+                    <input type="number" class="filter-input" value="-1" step="0.1">
+                    <input type="number" class="filter-input" value="0" step="0.1">
+                    <input type="number" class="filter-input" value="-1" step="0.1">
+                    <input type="number" class="filter-input" value="5" step="0.1">
+                    <input type="number" class="filter-input" value="-1" step="0.1">
+                    <input type="number" class="filter-input" value="0" step="0.1">
+                    <input type="number" class="filter-input" value="-1" step="0.1">
+                    <input type="number" class="filter-input" value="0" step="0.1">
+                </div>
+
+                <div class="preset-filters">
+                    <button class="preset-btn" onclick="setPreset('sharpen')">🔪 Sharpen</button>
+                    <button class="preset-btn" onclick="setPreset('blur')">🌫️ Blur</button>
+                    <button class="preset-btn" onclick="setPreset('edge')">📐 Edge Detection</button>
+                    <button class="preset-btn" onclick="setPreset('emboss')">🎭 Emboss</button>
+                    <button class="preset-btn" onclick="setPreset('identity')">🔄 Identity</button>
+                </div>
+
+                <button class="apply-btn" id="applyBtn" onclick="applyFilter()" disabled>
+                    ✨ Apply Filter
+                </button>
+
+                <div class="loading" id="loading">
+                    🔄 Processing image...
+                </div>
+            </div>
+
+            <div class="image-container" id="imageContainer" style="display: none;">
+                <div class="image-box">
+                    <h3>📷 Original Image</h3>
+                    <img id="originalImage" alt="Original">
+                </div>
+                <div class="image-box">
+                    <h3>🎨 Filtered Image</h3>
+                    <img id="filteredImage" alt="Filtered">
+                </div>
+            </div>
+
+            <div class="stats" id="stats" style="display: none;">
+                <h3>📊 Filter Statistics</h3>
+                <div id="statsContent"></div>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="originalCanvas"></canvas>
+                <canvas id="filteredCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let originalImageData = null;
+
+        // Preset filter kernels
+        const presets = {
+            sharpen: [0, -1, 0, -1, 5, -1, 0, -1, 0],
+            blur: [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+            edge: [-1, -1, -1, -1, 8, -1, -1, -1, -1],
+            emboss: [-2, -1, 0, -1, 1, 1, 0, 1, 2],
+            identity: [0, 0, 0, 0, 1, 0, 0, 0, 0]
+        };
+
+        // Upload area functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const imageInput = document.getElementById('imageInput');
+
+        uploadArea.addEventListener('click', () => imageInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleImageUpload(files[0]);
+            }
+        });
+
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleImageUpload(e.target.files[0]);
+            }
+        });
+
+        function handleImageUpload(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Please select a valid image file');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.getElementById('originalCanvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Resize image if too large
+                    const maxSize = 800;
+                    let { width, height } = img;
+                    if (width > maxSize || height > maxSize) {
+                        const ratio = Math.min(maxSize / width, maxSize / height);
+                        width *= ratio;
+                        height *= ratio;
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    originalImageData = ctx.getImageData(0, 0, width, height);
+                    
+                    // Display original image
+                    document.getElementById('originalImage').src = canvas.toDataURL();
+                    document.getElementById('applyBtn').disabled = false;
+                    
+                    uploadArea.innerHTML = '<p>✅ Image uploaded successfully! Upload another to replace.</p>';
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function setPreset(presetName) {
+            const inputs = document.querySelectorAll('.filter-input');
+            const values = presets[presetName];
+            inputs.forEach((input, index) => {
+                input.value = values[index];
+            });
+        }
+
+        function applyFilter() {
+            if (!originalImageData) return;
+
+            const loading = document.getElementById('loading');
+            const applyBtn = document.getElementById('applyBtn');
+            
+            loading.style.display = 'block';
+            applyBtn.disabled = true;
+
+            setTimeout(() => {
+                // Get kernel values
+                const inputs = document.querySelectorAll('.filter-input');
+                const kernel = Array.from(inputs).map(input => parseFloat(input.value) || 0);
+                
+                // Apply convolution
+                const filteredData = convolve(originalImageData, kernel);
+                
+                // Display filtered image
+                const canvas = document.getElementById('filteredCanvas');
+                canvas.width = originalImageData.width;
+                canvas.height = originalImageData.height;
+                const ctx = canvas.getContext('2d');
+                ctx.putImageData(filteredData, 0, 0);
+                
+                document.getElementById('filteredImage').src = canvas.toDataURL();
+                document.getElementById('imageContainer').style.display = 'grid';
+                
+                // Show statistics
+                showStatistics(kernel, originalImageData);
+                
+                loading.style.display = 'none';
+                applyBtn.disabled = false;
+            }, 100);
+        }
+
+        function convolve(imageData, kernel) {
+            const { data, width, height } = imageData;
+            const output = new ImageData(width, height);
+            const outputData = output.data;
+
+            for (let y = 1; y < height - 1; y++) {
+                for (let x = 1; x < width - 1; x++) {
+                    for (let c = 0; c < 3; c++) { // RGB channels only
+                        let sum = 0;
+                        for (let ky = -1; ky <= 1; ky++) {
+                            for (let kx = -1; kx <= 1; kx++) {
+                                const pixelIndex = ((y + ky) * width + (x + kx)) * 4 + c;
+                                const kernelIndex = (ky + 1) * 3 + (kx + 1);
+                                sum += data[pixelIndex] * kernel[kernelIndex];
+                            }
+                        }
+                        
+                        const outputIndex = (y * width + x) * 4 + c;
+                        outputData[outputIndex] = Math.max(0, Math.min(255, sum));
+                    }
+                    
+                    // Alpha channel
+                    const alphaIndex = (y * width + x) * 4 + 3;
+                    outputData[alphaIndex] = data[alphaIndex];
+                }
+            }
+
+            return output;
+        }
+
+        function showStatistics(kernel, imageData) {
+            const kernelSum = kernel.reduce((a, b) => a + b, 0);
+            const kernelMean = kernelSum / 9;
+            const kernelVariance = kernel.reduce((sum, val) => sum + Math.pow(val - kernelMean, 2), 0) / 9;
+            const kernelStd = Math.sqrt(kernelVariance);
+
+            const statsContent = `
+                <p><strong>Image Dimensions:</strong> ${imageData.width} × ${imageData.height} pixels</p>
+                <p><strong>Total Pixels:</strong> ${(imageData.width * imageData.height).toLocaleString()}</p>
+                <p><strong>Kernel Sum:</strong> ${kernelSum.toFixed(3)}</p>
+                <p><strong>Kernel Mean:</strong> ${kernelMean.toFixed(3)}</p>
+                <p><strong>Kernel Standard Deviation:</strong> ${kernelStd.toFixed(3)}</p>
+                <p><strong>Kernel Matrix:</strong></p>
+                <div style="font-family: monospace; margin-top: 10px;">
+                    [${kernel.slice(0,3).map(v => v.toFixed(1)).join(', ')}]<br>
+                    [${kernel.slice(3,6).map(v => v.toFixed(1)).join(', ')}]<br>
+                    [${kernel.slice(6,9).map(v => v.toFixed(1)).join(', ')}]
+                </div>
+            `;
+
+            document.getElementById('statsContent').innerHTML = statsContent;
+            document.getElementById('stats').style.display = 'block';
+        }
+
+        // Initialize with sharpen filter
+        setPreset('sharpen');
+    </script>
+</body>
+</html>
