@@ -16,10 +16,15 @@ GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini
 
 app = FastAPI()
 
-# Allow CORS for local fronten
+# Allow CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:8000",
+        "http://127.0.0.1:8000", 
+        "http://ec2-13-51-121-182.eu-north-1.compute.amazonaws.com:8000",
+        "https://ec2-13-51-121-182.eu-north-1.compute.amazonaws.com:8000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
