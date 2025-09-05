@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Genie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+    }
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #181a20;
+    }
+    .login-box {
+      background: #23242b;
+      color: #fff;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-width: 300px;
+    }
+    .login-box input {
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #444;
+      font-size: 1rem;
+      background: #23242b;
+      color: #fff;
+    }
+    .login-box button {
+      background: #7c6ee6;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .login-box button:hover {
+      background: #5a4bb7;
+    }
+    .app-container {
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      background: #fff;
+      color: #234e52;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      gap: 2rem;
+      border-right: 1px solid #b2f5ea;
+    }
+    .sidebar-header {
+      background: #4fd1c5;
+      border-radius: 8px;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .sidebar-header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 1px;
+      color: #234e52;
+    }
+    .sidebar-user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #38b2ac;
+      margin-right: 0.3rem;
+    }
+    .status-dot.teal {
+      background: #38b2ac;
+    }
+    .sidebar-section {
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #319795;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      padding-left: 0.2rem;
+    }
+    .channel-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .channel-list li {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: transparent;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      color: #234e52;
+    }
+    .channel-list li.selected, .channel-list li:hover {
+      background: #4fd1c5;
+      color: #234e52;
+    }
+    .dm-list li {
+      padding: 0.6rem 0.7rem;
+      border-radius: 8px;
+      background: transparent;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      color: #234e52;
+    }
+    .dm-list li:hover {
+      background: #b2f5ea;
+      color: #234e52;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f8fafc;
+    }
+    .chat-header {
+      background: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #252423;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .chat-area {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .message {
+      display: flex;
+      flex-direction: column;
+      max-width: 60%;
+      word-break: break-word;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .message.user {
+      align-self: flex-end;
+      background: #dbeafe;
+      border-radius: 16px 16px 0 16px;
+      padding: 1rem 1.4rem;
+      color: #252423;
+      margin-left: auto;
+      margin-bottom: 0.2rem;
+    }
+    .message.john {
+      align-self: flex-start;
+      background: #f7f3e9;
+      border-radius: 16px 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #6b4f1d;
+      margin-right: auto;
+      margin-bottom: 0.2rem;
+    }
+    .message.sara {
+      align-self: flex-start;
+      background: #e9f2fa;
+      border-radius: 16px 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #2d5c7f;
+      margin-right: auto;
+      margin-bottom: 0.2rem;
+    }
+    .message.aisha {
+      align-self: flex-start;
+      background: #e8f5e9;
+      border-radius: 16px 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #2e7d32;
+      margin-right: auto;
+      margin-bottom: 0.2rem;
+    }
+    .message.mack {
+      align-self: flex-start;
+      background: #f3e5f5;
+      border-radius: 16px 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #6a1b9a;
+      margin-right: auto;
+      margin-bottom: 0.2rem;
+    }
+    .message .meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.3rem;
+      margin-bottom: -0.5rem;
+      font-weight: 500;
+    }
+    .mention {
+      background: #f9e79f;
+      color: #b07d00;
+      border-radius: 4px;
+      padding: 0 0.25em;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .chat-input {
+      display: flex;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      gap: 1rem;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
+    }
+    .chat-input button {
+      background: #4fd1c5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .chat-input button:hover {
+      background: #319795;
+    }
+    /* Markdown styling */
+    .message-content p { margin: 0.5em 0; }
+    .message-content ul, .message-content ol { margin: 0.5em 0 0.5em 1.2em; }
+    .message-content code {
+      background: #f3f3f3;
+      border-radius: 4px;
+      padding: 0.1em 0.4em;
+      font-size: 0.98em;
+      font-family: 'Fira Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="login" class="login-container">
+    <form class="login-box" id="loginForm">
+      <h2>Welcome to Personal Genie</h2>
+      <input type="text" id="username" placeholder="Enter your username" required />
+      <button type="submit">Join Personal Genie</button>
+    </form>
+  </div>
+  <div id="app" class="app-container" style="display:none;">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Personal Genie</h1>
+      </div>
+      <div class="sidebar-user" id="sidebarUser">
+        <span class="status-dot online"></span>
+        <span id="sidebarUsername">You</span>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">CHANNELS</div>
+        <ul class="channel-list">
+          <li class="selected"># Culinary</li>
+          <li># Household Budget</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">DIRECT MESSAGES</div>
+        <ul class="dm-list" style="list-style:none;padding:0;margin:0;">
+          <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;"><span class="status-dot online teal"></span><span style="font-weight:600;">Sara</span> <span style="font-size:0.92em;color:#319795;">(Nutrition Agent)</span></li>
+          <li style="display:flex;align-items:center;gap:0.5rem;"><span class="status-dot online teal"></span><span style="font-weight:600;">John</span> <span style="font-size:0.92em;color:#319795;">(Chef Agent)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="chat-header">
+        <span id="channelTitle"># Culinary</span>
+        <span id="channelMembers" style="font-size:0.95rem;color:#888;">(You, John, Sara)</span>
+      </div>
+      <div class="chat-area" id="chatArea">
+        <!-- Messages will appear here -->
+      </div>
+      <form class="chat-input" id="chatForm" autocomplete="off">
+        <input type="text" id="messageInput" placeholder="Type a message..." required />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const loginDiv = document.getElementById('login');
+    const appDiv = document.getElementById('app');
+    const loginForm = document.getElementById('loginForm');
+    const chatForm = document.getElementById('chatForm');
+    const chatArea = document.getElementById('chatArea');
+    const messageInput = document.getElementById('messageInput');
+    const sidebarUsername = document.getElementById('sidebarUsername');
+    const API_URL = "http://127.0.0.1:8000/chat";
+    let username = '';
+    let messages = [];
+    let currentChannel = 'culinary';
+
+    // Utility: highlight @mentions (now bold for all, including user messages)
+    function highlightMentions(text) {
+      return text.replace(/(@John|@Sara)/gi, '<b>$1</b>');
+    }
+
+    // Utility: render markdown
+    function renderMarkdown(text) {
+      return marked.parse(text);
+    }
+
+    function renderMessages() {
+      chatArea.innerHTML = '';
+      messages.forEach(msg => {
+        // Replace {username} placeholder with actual username in agent intros
+        let text = msg.text;
+        if (typeof text === 'string' && text.includes('{username}')) {
+          text = text.replace(/\{username\}/g, username);
+        }
+        // Only render agent messages on left, user messages on right
+        let senderClass = msg.sender;
+        let senderLabel = '';
+        let alignClass = '';
+        let shouldRender = false;
+        if (msg.sender === 'user') {
+          senderLabel = username;
+          alignClass = 'user';
+          shouldRender = true;
+        } else if (currentChannel === 'culinary') {
+          if (msg.sender === 'john') {
+            senderLabel = 'John (Chef)';
+            alignClass = 'john';
+            shouldRender = true;
+          } else if (msg.sender === 'sara') {
+            senderLabel = 'Sara (Nutritionist)';
+            alignClass = 'sara';
+            shouldRender = true;
+          }
+        } else if (currentChannel === 'household budget') {
+          if (msg.sender === 'aisha') {
+            senderLabel = 'Aisha (Planner)';
+            alignClass = 'aisha';
+            shouldRender = true;
+          } else if (msg.sender === 'mack') {
+            senderLabel = 'Mack (Reviewer)';
+            alignClass = 'mack';
+            shouldRender = true;
+          }
+        }
+        if (shouldRender) {
+          const msgDiv = document.createElement('div');
+          msgDiv.className = `message ${alignClass}`;
+          if (text === 'typing...') {
+            msgDiv.innerHTML = `<div><em>${senderLabel} is typing...</em></div>`;
+          } else {
+            let html = highlightMentions(text);
+            html = renderMarkdown(html);
+            msgDiv.innerHTML = `<div class="message-content">${html}</div><div class="meta">${senderLabel}</div>`;
+          }
+          chatArea.appendChild(msgDiv);
+        }
+      });
+      chatArea.scrollTop = chatArea.scrollHeight;
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      username = document.getElementById('username').value.trim();
+      if (!username) return;
+      sidebarUsername.textContent = username;
+      loginDiv.style.display = 'none';
+      appDiv.style.display = 'flex';
+
+      // Join the default channel
+      const joinResponse = await fetch(`${API_URL}/join`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, channel: currentChannel })
+      });
+      const joinData = await joinResponse.json();
+      messages = joinData.messages;
+      renderMessages();
+    });
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const messageText = messageInput.value.trim();
+      if (!messageText) return;
+
+      // Add and render the new message optimistically
+      const userMessage = { sender: 'user', text: messageText };
+      messages.push(userMessage);
+      renderMessages();
+
+      messageInput.value = '';
+
+      // Determine which agent(s) should show typing indicator
+      let agentNames = [];
+      const lowerMsg = messageText.toLowerCase();
+      if (currentChannel === 'culinary') {
+        if (/@john|john/.test(lowerMsg)) agentNames.push('john');
+        if (/@sara|sara/.test(lowerMsg)) agentNames.push('sara');
+        // If both are mentioned, both should type; if neither, default to both
+        if (agentNames.length === 0) agentNames = ['john', 'sara'];
+      } else if (currentChannel === 'household budget') {
+        if (/@aisha|aisha/.test(lowerMsg)) agentNames.push('aisha');
+        if (/@mack|mack/.test(lowerMsg)) agentNames.push('mack');
+        if (agentNames.length === 0) agentNames = ['aisha', 'mack'];
+      }
+      // Remove any existing typing indicators
+      messages = messages.filter(m => m.text !== 'typing...');
+      agentNames.forEach(name => messages.push({ sender: name, text: 'typing...' }));
+      renderMessages();
+
+      // Send the message to the server and update messages with the response
+      const response = await fetch(`${API_URL}/message`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, channel: currentChannel, text: messageText, history: messages.filter(m => m.text !== 'typing...') })
+      });
+      const data = await response.json();
+      messages = data.history;
+      renderMessages();
+    });
+
+    // Channel click handler (for now, just switch between two static channels)
+    document.querySelectorAll('.channel-list li').forEach(li => {
+      li.addEventListener('click', async () => {
+        const channel = li.textContent.trim().replace('# ', '').toLowerCase();
+        if (channel === currentChannel) return;
+
+        // Update channel state
+        currentChannel = channel;
+        sidebarUser.querySelector('#sidebarUsername').textContent = username;
+        // Fetch and render channel messages (pass username as query param)
+        const response = await fetch(`${API_URL}/channel/${channel}?username=${encodeURIComponent(username)}`);
+        const data = await response.json();
+        messages = data.messages;
+        renderMessages();
+
+        // Update UI for active channel
+        document.querySelectorAll('.channel-list li').forEach(el => el.classList.remove('selected'));
+        li.classList.add('selected');
+        // Update chat header and members
+        const channelTitle = `# ${channel.charAt(0).toUpperCase() + channel.slice(1)}`;
+        document.getElementById('channelTitle').textContent = channelTitle;
+        if (channel === 'culinary') {
+          document.getElementById('channelMembers').textContent = '(You, John, Sara)';
+        } else if (channel === 'household budget') {
+          document.getElementById('channelMembers').textContent = '(You, Aisha, Mack)';
+        } else {
+          document.getElementById('channelMembers').textContent = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
