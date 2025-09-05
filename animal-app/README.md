@@ -39,8 +39,9 @@ cd animal-app
 python -m venv venv
 
 # Install dependencies directly
-.\venv\Scripts\python.exe -m pip install fastapi uvicorn[standard] python-multipart jinja2 aiofiles
+.\venv\Scripts\python.exe -m 
 
+is no
 # Start WildSnap using uvicorn
 .\venv\Scripts\uvicorn.exe main:app --host 0.0.0.0 --port 8001 --reload
 ```
