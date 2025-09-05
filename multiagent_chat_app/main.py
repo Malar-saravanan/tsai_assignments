@@ -2,6 +2,8 @@ import os
 import asyncio
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import List
 import httpx
@@ -325,3 +327,14 @@ async def chat_message(req: Request):
     msg_objs = [Message(**m) if isinstance(m, dict) else m for m in history]
     chat_req = ChatRequest(username=username, message=message, history=msg_objs)
     return await chat(chat_req)
+
+# Serve the frontend
+@app.get("/")
+async def serve_frontend():
+    """Serve the main chat interface"""
+    return FileResponse("index.html")
+
+@app.get("/index.html")
+async def serve_index():
+    """Serve the index.html file directly"""
+    return FileResponse("index.html")
