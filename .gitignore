@@ -188,3 +188,4 @@ checkpoints/
 # FastAPI specific
 .pytest_cache/
 test_*.db
+
