@@ -1,5 +1,15 @@
 # Progressive CNN Architectures for MNIST
 
+## Assignment Requirements Checklist (GAP CNN)
+
+- **Validation Accuracy:** Achieved** 99.43% **on 10,000 validation samples (50K/10K split)
+- **Parameter Limit:** 17,442 parameters (<20,000)
+- **Epoch Limit:** Target accuracy achieved at epoch 11 (<20 epochs)
+- **Batch Normalization:** Used after every convolutional layer (nn.BatchNorm2d)
+- **Dropout:** Used after pooling and convolution blocks (nn.Dropout2d(0.1))
+- **Fully Connected Layer or GAP:** No fully connected layer; final classification uses Global Average Pooling (nn.AdaptiveAvgPool2d(1)) and a 1x1 convolution
+
+
 ## Best Model Architecture (GAP CNN)
 The best model is a compact CNN designed for MNIST digit classification, achieving high accuracy with minimal parameters. It uses:
 - **7 Convolutional layers** (6 for feature extraction + 1x1 for classification)
@@ -107,17 +117,6 @@ class GAPCNN(nn.Module):
 - **Global Average Pooling (GAP):** nn.AdaptiveAvgPool2d(1) after final 1x1 convolution
 
 This model is the most parameter-efficient and meets all assignment requirements: <20K parameters, <20 epochs, 99.4%+ accuracy, BatchNorm, Dropout, and GAP.
-
----
-
-## Assignment Requirements Checklist (GAP CNN)
-
-- **Validation/Test Accuracy:** Achieved 99.43% on 10,000 validation/test samples (50K/10K split)
-- **Parameter Limit:** 17,442 parameters (<20,000)
-- **Epoch Limit:** Target accuracy achieved at epoch 11 (<20 epochs)
-- **Batch Normalization:** Used after every convolutional layer (nn.BatchNorm2d)
-- **Dropout:** Used after pooling and convolution blocks (nn.Dropout2d(0.1))
-- **Fully Connected Layer or GAP:** No fully connected layer; final classification uses Global Average Pooling (nn.AdaptiveAvgPool2d(1)) and a 1x1 convolution
 
 ---
 
