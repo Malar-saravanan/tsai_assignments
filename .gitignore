@@ -89,6 +89,7 @@ tmp/
 *.db
 *.sqlite
 *.sqlite3
+data/
 
 # Cache Files
 .cache/
@@ -188,5 +189,6 @@ checkpoints/
 # FastAPI specific
 .pytest_cache/
 test_*.db
+
 
 
