@@ -36,8 +36,8 @@ Input (1x28x28)
 → Conv2d(12→14, 3x3, pad=1) + BN + ReLU   # RF=10, 14x14
 → MaxPool2d(2x2)                          # RF=12, 7x7
 → Conv2d(14→16, 3x3) + BN + ReLU          # RF=20, 5x5
-→ Conv2d(16→18, 3x3) + BN + ReLU          # RF=24, 3x3
-→ Conv2d(18→10, 1x1)                      # RF=24, 3x3
+→ Conv2d(16→18, 3x3) + BN + ReLU          # RF=28, 3x3
+→ Conv2d(18→10, 1x1)                      # RF=28, 3x3
 → GAP → FC(10)
 ```
 
@@ -121,10 +121,10 @@ All models follow the same RF progression:
 - **Layer 3**: RF = 10 (3x3 conv)
 - **Pool 2**: RF = 12 (2x2 maxpool)
 - **Layer 4**: RF = 20 (3x3 conv, no padding)
-- **Layer 5**: RF = 24 (3x3 conv, no padding)
-- **Final**: RF = 24 (1x1 conv)
+- **Layer 5**: RF = 28 (3x3 conv, no padding)
+- **Final**: RF = 28 (1x1 conv)
 
-The final RF of 24 is sufficient for MNIST (28x28 images) as it covers most of the input space.
+The final RF of 28 is optimal for MNIST (28x28 images) as it covers the entire input space perfectly.
 
 ---
 
