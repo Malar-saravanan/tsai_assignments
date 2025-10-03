@@ -1,0 +1,12 @@
+{
+  "experiment_name": "Experiment_1_Baseline",
+  "model_type": "Baseline",
+  "total_parameters": 186770,
+  "total_epochs": 20,
+  "target_accuracy": 85.0,
+  "best_val_accuracy": 86.84,
+  "final_test_accuracy": 86.32,
+  "target_achieved": true,
+  "training_time_minutes": 29.860563818613688,
+  "device": "mps"
+}
