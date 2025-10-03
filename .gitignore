@@ -49,7 +49,7 @@ Thumbs.db
 
 # Logs
 *.log
-logs/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -89,7 +89,7 @@ tmp/
 *.db
 *.sqlite
 *.sqlite3
-data/
+
 
 # Cache Files
 .cache/
@@ -180,15 +180,24 @@ cython_debug/
 *~
 
 # AI/ML specific
-models/
+
 checkpoints/
 *.h5
 *.pkl
 *.joblib
 
+# CIFAR-10 Dataset Files
+data/cifar-10-batches-py/data_batch_*
+data/cifar-10-batches-py/test_batch
+data/cifar-10-batches-py/batches.meta
+data/cifar-10-python.tar.gz
+
 # FastAPI specific
 .pytest_cache/
 test_*.db
+
+
+
 
 
 

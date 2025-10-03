@@ -1,0 +1,14 @@
+{
+  "experiment_name": "Experiment_2_Optimized",
+  "model_type": "Optimized",
+  "total_parameters": 177379,
+  "total_epochs": 29,
+  "target_accuracy": 89.0,
+  "best_val_accuracy": 89.36,
+  "final_test_accuracy": 89.11,
+  "target_achieved": true,
+  "training_time_minutes": 43.684606329600015,
+  "device": "mps",
+  "exp1_baseline_accuracy": 86.84,
+  "improvement_over_exp1": 2.519999999999996
+}
