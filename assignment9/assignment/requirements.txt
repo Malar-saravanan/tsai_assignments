@@ -1,0 +1,13 @@
+# Core deep learning dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Essential libraries
+numpy>=1.21.0
+Pillow>=9.0.0
+
+# Training utilities
+tqdm>=4.64.0
+
+# Optional: For deployment (HuggingFace Spaces)
+gradio>=4.0.0
