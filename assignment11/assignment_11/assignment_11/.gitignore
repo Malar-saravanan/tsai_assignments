@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dataset cache
+.cache/
+datasets/
+
+# HuggingFace
+.huggingface/
+
+# Training outputs that can be regenerated
+tokenizer_config.json
+MODEL_CARD.md
+test_results.json
+
+# Generated files (optional - uncomment to exclude from git)
+# Recommendation: Include these in your repo to show your results
+# tamil_bpe_tokenizer.json
+# tokenizer_summary.json
+# tokenizer_stats.png
+

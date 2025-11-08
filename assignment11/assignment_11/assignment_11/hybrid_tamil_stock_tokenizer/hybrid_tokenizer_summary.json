@@ -1,0 +1,32 @@
+{
+  "type": "Hybrid Tokenizer",
+  "domains": [
+    "Tamil Language",
+    "Stock Market Data"
+  ],
+  "vocabulary_size": 40000,
+  "compression_ratio": 5.7752,
+  "tamil_compression": 5.12,
+  "tamil_vocab_count": 35991,
+  "tamil_vocab_percentage": 89.98,
+  "stock_compression": 4.9,
+  "stock_vocab_count": 5572,
+  "stock_vocab_percentage": 13.93,
+  "meets_vocab_requirement": true,
+  "meets_compression_requirement": true,
+  "meets_tamil_requirement": true,
+  "meets_stock_requirement": true,
+  "dataset_composition": {
+    "tamil": "10%",
+    "stock": "90%"
+  },
+  "total_training_documents": 30000,
+  "double_points_attempt": true,
+  "note": "Tamil uses byte-encoding (ByteLevel), Stock uses English vocabulary",
+  "unique_features": [
+    "5000+ stock vocabulary: 1000+ symbols, 4000+ trading/finance terms",
+    "Combines Tamil language with comprehensive stock market vocabulary",
+    "Real-world application: Tamil financial news + stock data",
+    "Tamil: 5.1x compression, Stock: 4.9x compression"
+  ]
+}

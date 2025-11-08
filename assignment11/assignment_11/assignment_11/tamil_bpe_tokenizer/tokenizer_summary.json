@@ -1,0 +1,10 @@
+{
+  "language": "Tamil",
+  "algorithm": "BPE",
+  "vocabulary_size": 8000,
+  "compression_ratio": 4.6671,
+  "meets_vocab_requirement": true,
+  "meets_compression_requirement": true,
+  "dataset_size": 50000,
+  "dataset_source": "HuggingFace (Real Tamil Data)"
+}
