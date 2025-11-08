@@ -2,6 +2,10 @@
 
 This branch contains implementations of Byte Pair Encoding (BPE) tokenizers for Tamil language and hybrid Tamil-Stock market data.
 
+## 🚀 Live Demo
+
+Try the tokenizer interactively: [HuggingFace Space - Indic Language Stock Tokenizer](https://huggingface.co/spaces/malarsaravanan/indic_language_stock_tokenizer)
+
 ---
 
 ## Experiment 1: Indic Language Tokenizer (Tamil)
@@ -64,6 +68,7 @@ Train a BPE tokenizer that handles both Tamil language text and English financia
 - **Stock Source**: Financial news (`zeroshot/twitter-financial-news-sentiment`)
 - **Corpus Size**: 30,000 documents (10% Tamil, 90% Stock)
 - **Stock Format**: Natural language (e.g., "$AAPL surged +2.5% on strong earnings")
+- **Live Demo**: [Try the hybrid tokenizer on HuggingFace Spaces](https://huggingface.co/spaces/malarsaravanan/indic_language_stock_tokenizer)
 
 ### Combined Results
 | Metric | Value | Status |
