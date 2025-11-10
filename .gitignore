@@ -89,6 +89,7 @@ tmp/
 *.db
 *.sqlite
 *.sqlite3
+*.pth
 
 
 # Cache Files
