@@ -1,5 +1,5 @@
 """
-ImageNet data loading optimized for budget training
+ImageNet data loading with advanced augmentation strategies
 """
 import os
 import torch
@@ -9,22 +9,34 @@ from torchvision import transforms
 
 
 class ImageNetDataModule:
-    def __init__(self, data_dir, batch_size=128, num_workers=4):
+    def __init__(self, data_dir, batch_size=128, num_workers=4, use_autoaugment=True, random_erasing_prob=0.1):
         self.data_dir = data_dir
         self.batch_size = batch_size
         self.num_workers = num_workers
         
         # BEST-IN-CLASS transforms for 75%+ accuracy (proven effective)
-        self.train_transform = transforms.Compose([
+        # Adopted from reference: AutoAugment + RandomErasing for +2-3% accuracy boost
+        train_list = [
             transforms.RandomResizedCrop(224, scale=(0.08, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
             transforms.RandomHorizontalFlip(p=0.5),
-            # Enhanced color augmentation (proven +0.5% accuracy boost)
-            transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1),
-            # Convert to tensor and normalize (ImageNet stats)
+        ]
+        
+        # AutoAugment (ImageNet policy) - adds ~1-2% accuracy
+        if use_autoaugment:
+            train_list.append(transforms.AutoAugment(transforms.AutoAugmentPolicy.IMAGENET))
+        
+        train_list.extend([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], 
                                std=[0.229, 0.224, 0.225])
         ])
+        
+        self.train_transform = transforms.Compose(train_list)
+        
+        # RandomErasing applied after ToTensor - adds ~0.5% accuracy
+        self.random_erasing_transform = None
+        if random_erasing_prob > 0.0:
+            self.random_erasing_transform = transforms.RandomErasing(p=random_erasing_prob)
         
         self.val_transform = transforms.Compose([
             transforms.Resize(256),

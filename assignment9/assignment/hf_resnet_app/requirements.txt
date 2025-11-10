@@ -1,0 +1,16 @@
+gradio>=4.29.0
+# Core
+torch>=2.3.0
+torchvision>=0.18.0
+
+# Dataset and utilities
+datasets>=2.20.0
+huggingface_hub>=0.24.0
+Pillow>=10.0.0
+numpy>=1.26.0
+tqdm>=4.66.0
+
+# Optional (for LR finder plot if desired)
+matplotlib>=3.8.0
+torch-lr-finder>=0.2.1
+

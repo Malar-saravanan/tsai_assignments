@@ -1,10 +1,41 @@
 """
-Training utilities for budget-optimized ResNet50
+Training utilities for ResNet50 on ImageNet
 """
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
+
+
+def coerce_labels_to_long_tensor(labels):
+    """
+    Convert labels into a 1D LongTensor robustly.
+    Handles tensors, lists/tuples of ints or tensors, and scalars.
+    Adopted from reference for better error handling.
+    """
+    if isinstance(labels, torch.Tensor):
+        if labels.dtype != torch.long:
+            labels = labels.long()
+        if labels.dim() > 1 and labels.size(-1) == 1:
+            labels = labels.squeeze(-1)
+        return labels
+    if isinstance(labels, (list, tuple)):
+        if len(labels) == 0:
+            return torch.empty(0, dtype=torch.long)
+        normalized = []
+        for item in labels:
+            if isinstance(item, torch.Tensor):
+                if item.numel() == 1:
+                    normalized.append(int(item.item()))
+                else:
+                    normalized.append(int(item.view(-1)[0].item()))
+            else:
+                normalized.append(int(item))
+        return torch.tensor(normalized, dtype=torch.long)
+    try:
+        return torch.tensor(labels, dtype=torch.long)
+    except Exception:
+        return torch.as_tensor(labels).long()
 
 
 class AverageMeter:
