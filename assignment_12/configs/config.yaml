@@ -1,0 +1,57 @@
+# GPT Training Configuration
+
+# Model Configuration
+model:
+  n_layer: 12          # Number of transformer layers
+  n_head: 12           # Number of attention heads
+  n_embd: 768          # Embedding dimension
+  block_size: 1024     # Maximum sequence length
+  vocab_size: 50257    # Vocabulary size (GPT-2 tokenizer)
+  dropout: 0.0         # Dropout rate (0.0 for no dropout)
+  bias: true           # Use bias in linear layers
+
+# Training Configuration
+training:
+  batch_size: 16       # Batch size (adjust based on your Mac's memory)
+  sequence_length: 256 # Sequence length (shorter for faster training)
+  max_steps: 10000     # Maximum training steps
+  target_loss: 0.099999 # Target loss to achieve
+  
+  # Optimization
+  learning_rate: 6.0e-4  # Peak learning rate
+  min_learning_rate: 6.0e-5  # Minimum learning rate (for cosine decay)
+  warmup_steps: 100      # Number of warmup steps
+  weight_decay: 0.1      # Weight decay for regularization
+  beta1: 0.9            # Adam beta1
+  beta2: 0.95           # Adam beta2
+  grad_clip: 1.0        # Gradient clipping value
+  
+  # Mixed precision (only for CUDA)
+  use_amp: false        # Automatic mixed precision (set to false for MPS)
+  
+  # Logging and Checkpointing
+  log_interval: 10      # Log every N steps
+  eval_interval: 100    # Evaluate every N steps
+  save_interval: 500    # Save checkpoint every N steps
+  
+  # Early stopping
+  early_stopping: true  # Stop when target loss is reached
+
+# Data Configuration
+data:
+  train_file: "input.txt"
+  encoding: "gpt2"      # Tokenizer encoding
+  train_split: 0.95     # Fraction for training (rest for validation)
+
+# System Configuration
+system:
+  seed: 1337            # Random seed for reproducibility
+  device: "auto"        # Device: "auto", "cuda", "mps", or "cpu"
+  compile: false        # Use torch.compile (PyTorch 2.0+, may not work on MPS)
+
+# Paths
+paths:
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+  data_dir: "data"
+

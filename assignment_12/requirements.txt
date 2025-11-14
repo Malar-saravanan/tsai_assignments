@@ -1,0 +1,24 @@
+# GPT Training Requirements
+
+# Core dependencies
+torch>=2.0.0
+numpy>=1.24.0
+
+# Tokenization
+tiktoken>=0.5.0
+
+# Configuration
+pyyaml>=6.0
+
+# Optional: For loading pretrained models
+transformers>=4.30.0
+
+# Development tools (optional)
+tqdm>=4.65.0
+matplotlib>=3.7.0
+tensorboard>=2.13.0
+
+# For Mac M1/M2/M3 users:
+# Make sure you have PyTorch with MPS support installed:
+# pip install torch torchvision torchaudio
+
