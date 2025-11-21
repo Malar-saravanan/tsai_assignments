@@ -114,8 +114,5 @@ Final model saved to final_model.pt
 ```
 
 ## 🚀 Deployment
-### GitHub Repository
-[Link to GitHub Repository](https://github.com/username/repo-name)
-
 ### Hugging Face Space
 [Link to Hugging Face Space](https://huggingface.co/spaces/malarsaravanan/SmolLM2-135M-demo)
