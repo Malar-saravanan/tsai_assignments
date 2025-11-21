@@ -1,0 +1,391 @@
+Using device: mps
+Loading tokenizer...
+Loading data...
+Token indices sequence length is longer than the specified maximum sequence length for this model (341094 > 8192). Running this sequence through the model will result in indexing errors
+Total tokens: 341094
+Initializing model...
+Loading weights from HuggingFaceTB/SmolLM2-135M
+Starting training for 5000 steps...
+step 0: loss 5.8471, time 0.46s
+Generated: <|endoftext|>Saissosteus in Santagoricinus sinking Tyrion was discovered in Norway, it began to approach - island of Santcha fish 
+step 10: loss 4.6856, time 3.85s
+step 20: loss 4.6889, time 3.07s
+step 30: loss 3.9427, time 3.08s
+step 40: loss 4.2775, time 3.08s
+step 50: loss 4.0515, time 3.08s
+step 60: loss 4.1897, time 3.08s
+step 70: loss 3.7245, time 3.08s
+step 80: loss 3.5788, time 3.08s
+step 90: loss 3.4986, time 3.11s
+step 100: loss 3.2812, time 3.15s
+step 110: loss 3.6855, time 3.18s
+step 120: loss 3.4930, time 3.20s
+step 130: loss 3.3396, time 3.21s
+step 140: loss 3.0064, time 3.21s
+step 150: loss 3.1963, time 3.16s
+step 160: loss 3.1762, time 3.17s
+step 170: loss 2.8132, time 3.16s
+step 180: loss 3.0477, time 3.15s
+step 190: loss 2.9573, time 3.18s
+step 200: loss 2.8778, time 3.20s
+step 210: loss 3.5046, time 3.20s
+step 220: loss 3.5105, time 3.19s
+step 230: loss 3.3969, time 3.16s
+step 240: loss 2.9094, time 3.16s
+step 250: loss 2.7730, time 3.21s
+step 260: loss 3.1738, time 3.12s
+step 270: loss 2.6998, time 3.12s
+step 280: loss 2.7953, time 3.10s
+step 290: loss 2.6675, time 3.11s
+step 300: loss 2.3494, time 3.10s
+step 310: loss 2.7090, time 3.22s
+step 320: loss 2.4528, time 3.20s
+step 330: loss 2.6844, time 3.19s
+step 340: loss 2.4373, time 3.22s
+step 350: loss 2.1313, time 3.23s
+step 360: loss 2.3052, time 3.35s
+step 370: loss 2.0617, time 3.33s
+step 380: loss 2.7379, time 3.51s
+step 390: loss 2.4980, time 3.45s
+step 400: loss 2.3953, time 3.53s
+step 410: loss 2.4580, time 3.51s
+step 420: loss 2.5693, time 3.56s
+step 430: loss 2.7710, time 3.64s
+step 440: loss 2.7276, time 3.72s
+step 450: loss 2.4136, time 3.71s
+step 460: loss 2.9026, time 3.77s
+step 470: loss 2.3169, time 3.86s
+step 480: loss 2.7991, time 3.99s
+step 490: loss 2.2404, time 3.81s
+step 500: loss 1.9685, time 4.05s
+Generated: <|endoftext|> Nurse? well, 'tis plain he hath done't: look up!  APTISTA: You might have heard him
+step 510: loss 2.8856, time 4.60s
+step 520: loss 2.2394, time 3.81s
+step 530: loss 2.1017, time 4.34s
+step 540: loss 2.3226, time 4.48s
+step 550: loss 2.2125, time 3.98s
+step 560: loss 2.4715, time 4.03s
+step 570: loss 2.0294, time 4.27s
+step 580: loss 1.4360, time 4.28s
+step 590: loss 1.8771, time 4.67s
+step 600: loss 2.2213, time 4.54s
+step 610: loss 2.2584, time 4.59s
+step 620: loss 2.1695, time 4.22s
+step 630: loss 2.0265, time 4.21s
+step 640: loss 1.8745, time 4.21s
+step 650: loss 2.1487, time 4.20s
+step 660: loss 1.9594, time 4.19s
+step 670: loss 1.8936, time 4.24s
+step 680: loss 1.9219, time 4.19s
+step 690: loss 1.8770, time 4.20s
+step 700: loss 1.8770, time 4.21s
+step 710: loss 1.8211, time 4.19s
+step 720: loss 1.6846, time 4.20s
+step 730: loss 1.8286, time 4.21s
+step 740: loss 1.6229, time 4.20s
+step 750: loss 1.5526, time 4.21s
+step 760: loss 1.6446, time 4.21s
+step 770: loss 1.5661, time 4.20s
+step 780: loss 1.4634, time 4.20s
+step 790: loss 1.5648, time 4.20s
+step 800: loss 1.5089, time 4.21s
+step 810: loss 1.4252, time 4.20s
+step 820: loss 1.3492, time 4.21s
+step 830: loss 1.3419, time 4.20s
+step 840: loss 1.3174, time 4.21s
+step 850: loss 1.2708, time 4.20s
+step 860: loss 1.2526, time 4.21s
+step 870: loss 1.2184, time 4.20s
+step 880: loss 1.1878, time 4.21s
+step 890: loss 1.1567, time 4.20s
+step 900: loss 1.1256, time 4.21s
+step 910: loss 1.0945, time 4.20s
+step 920: loss 1.0634, time 4.21s
+step 930: loss 1.0323, time 4.20s
+step 940: loss 1.0012, time 4.21s
+step 950: loss 0.9701, time 4.20s
+step 960: loss 0.9390, time 4.21s
+step 970: loss 0.9079, time 4.20s
+step 980: loss 0.8768, time 4.21s
+step 990: loss 0.8457, time 4.20s
+step 1000: loss 0.8429, time 3.85s
+Generated: <|endoftext|>I have seen the day of wrong.  Third Citizen: If you will then, he shall have it.
+step 1010: loss 0.8146, time 4.20s
+step 1020: loss 0.7835, time 4.21s
+step 1030: loss 0.7524, time 4.20s
+step 1040: loss 0.7213, time 4.21s
+step 1050: loss 0.6902, time 4.20s
+step 1060: loss 0.6591, time 4.21s
+step 1070: loss 0.6280, time 4.20s
+step 1080: loss 0.5969, time 4.21s
+step 1090: loss 0.5658, time 4.20s
+step 1100: loss 0.5347, time 4.21s
+step 1110: loss 0.5036, time 4.20s
+step 1120: loss 0.5869, time 3.78s
+step 1130: loss 0.8455, time 3.83s
+step 1140: loss 0.9175, time 3.83s
+step 1150: loss 0.6768, time 3.80s
+step 1160: loss 0.6635, time 3.86s
+step 1170: loss 1.0897, time 4.15s
+step 1180: loss 0.8258, time 4.10s
+step 1190: loss 1.1771, time 4.17s
+step 1200: loss 0.7380, time 3.81s
+step 1210: loss 0.9221, time 3.81s
+step 1220: loss 0.8178, time 3.91s
+step 1230: loss 0.8429, time 3.85s
+step 1240: loss 0.8632, time 3.79s
+step 1250: loss 0.5235, time 3.84s
+step 1260: loss 0.9836, time 3.81s
+step 1270: loss 0.8158, time 3.81s
+step 1280: loss 0.4785, time 4.63s
+step 1290: loss 0.4975, time 4.44s
+step 1300: loss 0.6006, time 4.35s
+step 1310: loss 1.3395, time 3.88s
+step 1320: loss 0.4850, time 3.93s
+step 1330: loss 0.2966, time 4.15s
+step 1340: loss 0.2854, time 3.83s
+step 1350: loss 0.5348, time 4.20s
+step 1360: loss 0.6992, time 4.39s
+step 1370: loss 1.1108, time 4.39s
+step 1380: loss 0.5043, time 4.37s
+step 1390: loss 0.3207, time 4.49s
+step 1400: loss 0.4517, time 4.17s
+step 1410: loss 0.5327, time 4.35s
+step 1420: loss 0.7835, time 4.42s
+step 1430: loss 0.4767, time 4.22s
+step 1440: loss 0.3186, time 4.28s
+step 1450: loss 0.4406, time 4.29s
+step 1460: loss 0.7921, time 4.22s
+step 1470: loss 0.5330, time 4.39s
+step 1480: loss 0.4287, time 4.13s
+step 1490: loss 0.6680, time 4.19s
+step 1500: loss 0.4279, time 4.23s
+Generated: <|endoftext|>Haste and speed is dear.  NORTHUMBERLAND: And so it is. Forcing him to sleep is 
+step 1510: loss 0.3601, time 4.56s
+step 1520: loss 0.3627, time 4.27s
+step 1530: loss 0.6032, time 4.40s
+step 1540: loss 0.4515, time 4.15s
+step 1550: loss 0.3566, time 4.31s
+step 1560: loss 0.2565, time 4.82s
+step 1570: loss 0.3242, time 3.96s
+step 1580: loss 0.3052, time 4.24s
+step 1590: loss 0.6293, time 3.99s
+step 1600: loss 0.3254, time 3.95s
+step 1610: loss 0.4884, time 4.19s
+step 1620: loss 0.2747, time 4.20s
+step 1630: loss 0.2811, time 4.02s
+step 1640: loss 0.1884, time 3.78s
+step 1650: loss 0.3361, time 3.86s
+step 2500: loss 0.1854, time 3.75s
+Generated: <|endoftext|>I have seen the day of wrong.  Third Citizen: If you will then, he shall have it.
+step 2950: loss 0.0811, time 3.70s
+step 2960: loss 0.1282, time 3.65s
+step 2970: loss 0.1132, time 3.68s
+step 2980: loss 0.1095, time 3.68s
+step 2990: loss 0.1203, time 3.69s
+step 3000: loss 0.1273, time 3.68s
+Generated: <|endoftext|> not another hazard! tumble down, Bear them to our confines. God keep the knight! And, as for ye, against all
+step 3010: loss 0.1200, time 3.98s
+step 3020: loss 0.1040, time 3.78s
+step 3030: loss 0.1238, time 3.72s
+step 3040: loss 0.0960, time 3.69s
+step 3050: loss 0.1167, time 3.71s
+step 3060: loss 0.0996, time 3.70s
+step 3070: loss 0.1120, time 3.72s
+step 3080: loss 0.1212, time 3.71s
+step 3090: loss 0.1141, time 3.72s
+step 3100: loss 0.1691, time 3.93s
+step 3110: loss 0.1533, time 3.81s
+step 3120: loss 0.1235, time 3.91s
+step 3130: loss 0.1460, time 4.31s
+step 3140: loss 0.1340, time 4.68s
+step 3150: loss 0.1368, time 5.05s
+step 3160: loss 0.1343, time 4.28s
+step 3170: loss 0.1561, time 4.33s
+step 3180: loss 0.1081, time 4.31s
+step 3190: loss 0.1282, time 3.92s
+step 3200: loss 0.1038, time 3.90s
+step 3210: loss 0.1629, time 4.10s
+step 3220: loss 0.1407, time 4.00s
+step 3230: loss 0.1234, time 4.12s
+step 3240: loss 0.1226, time 4.41s
+step 3250: loss 0.1313, time 3.99s
+step 3260: loss 0.1126, time 3.83s
+step 3270: loss 0.1368, time 3.86s
+step 3280: loss 0.1147, time 3.91s
+step 3290: loss 0.1059, time 4.06s
+step 3300: loss 0.1066, time 3.86s
+step 3310: loss 0.1324, time 3.90s
+step 3320: loss 0.1140, time 3.91s
+step 3330: loss 0.1281, time 4.15s
+step 3340: loss 0.1591, time 4.16s
+step 3350: loss 0.1227, time 3.88s
+step 3360: loss 0.1201, time 4.02s
+step 3370: loss 0.1365, time 4.29s
+step 3380: loss 0.1254, time 3.86s
+step 3390: loss 0.0877, time 4.17s
+step 3400: loss 0.0930, time 3.86s
+step 3410: loss 0.1083, time 3.92s
+step 3420: loss 0.1125, time 3.85s
+step 3430: loss 0.1149, time 3.80s
+step 3440: loss 0.1066, time 4.21s
+step 3450: loss 0.1462, time 4.02s
+step 3460: loss 0.1578, time 3.73s
+step 3470: loss 0.1616, time 4.24s
+step 4040: loss 0.1139, time 3.80s
+step 4050: loss 0.0998, time 4.21s
+step 4060: loss 0.1364, time 3.80s
+step 4070: loss 0.0975, time 3.80s
+step 4080: loss 0.0819, time 3.79s
+step 4090: loss 0.1256, time 3.81s
+step 4100: loss 0.1176, time 3.78s
+step 4110: loss 0.1167, time 3.80s
+step 4120: loss 0.0870, time 4.20s
+step 4130: loss 0.1175, time 4.33s
+step 4140: loss 0.1258, time 4.03s
+step 4150: loss 0.1120, time 3.93s
+step 4160: loss 0.1653, time 4.01s
+step 4170: loss 0.1278, time 4.03s
+step 4180: loss 0.1202, time 3.75s
+step 4190: loss 0.1057, time 3.87s
+step 4200: loss 0.1141, time 3.96s
+step 4210: loss 0.0974, time 3.84s
+step 4220: loss 0.1333, time 4.27s
+step 4230: loss 0.1321, time 4.02s
+step 4240: loss 0.1075, time 4.05s
+step 4250: loss 0.1197, time 4.23s
+step 4260: loss 0.0630, time 4.06s
+step 4270: loss 0.0972, time 4.09s
+step 4280: loss 0.1351, time 4.23s
+step 4290: loss 0.0912, time 4.24s
+step 4300: loss 0.0847, time 4.10s
+step 4310: loss 0.0973, time 4.00s
+step 4320: loss 0.1050, time 3.96s
+step 4330: loss 0.0790, time 3.97s
+step 4340: loss 0.0709, time 4.18s
+step 4350: loss 0.0889, time 4.36s
+step 4360: loss 0.1031, time 4.26s
+step 4370: loss 0.1031, time 4.61s
+step 4380: loss 0.0761, time 4.40s
+step 4390: loss 0.1133, time 3.95s
+step 4400: loss 0.0854, time 3.89s
+step 4410: loss 0.0790, time 3.87s
+step 4420: loss 0.0831, time 3.87s
+step 4430: loss 0.1208, time 3.90s
+step 4440: loss 0.0958, time 3.91s
+step 4450: loss 0.1065, time 4.14s
+step 4460: loss 0.1005, time 3.98s
+step 4470: loss 0.0732, time 4.02s
+step 4480: loss 0.0941, time 4.09s
+step 4490: loss 0.1035, time 3.87s
+step 4500: loss 0.1155, time 3.91s
+Generated: <|endoftext|>DUKE VINCENTIO: I know him well: you two with fourscore leave him for Venice; and, after another
+step 4510: loss 0.0899, time 4.20s
+step 4520: loss 0.0820, time 3.81s
+step 4530: loss 0.1127, time 3.84s
+step 4540: loss 0.0981, time 3.85s
+step 4550: loss 0.0868, time 3.83s
+step 4560: loss 0.0947, time 3.83s
+step 4570: loss 0.1133, time 3.86s
+step 4580: loss 0.1041, time 3.90s
+step 4590: loss 0.0797, time 3.82s
+step 4600: loss 0.1132, time 3.84s
+step 4610: loss 0.1152, time 3.84s
+step 4620: loss 0.1042, time 3.81s
+step 4630: loss 0.1209, time 3.83s
+step 4640: loss 0.0910, time 3.83s
+step 4650: loss 0.1235, time 3.86s
+step 4660: loss 0.0995, time 4.07s
+step 4670: loss 0.0919, time 4.02s
+step 4680: loss 0.1073, time 3.91s
+step 4690: loss 0.1004, time 3.83s
+step 4700: loss 0.0825, time 3.83s
+step 4710: loss 0.1512, time 3.85s
+step 4720: loss 0.0988, time 3.95s
+step 4730: loss 0.1170, time 3.90s
+step 4740: loss 0.0885, time 3.85s
+step 4750: loss 0.1037, time 3.88s
+step 4760: loss 0.1247, time 4.03s
+step 4770: loss 0.1096, time 4.57s
+step 4780: loss 0.0777, time 4.26s
+step 4790: loss 0.1060, time 4.08s
+step 4800: loss 0.1020, time 3.99s
+step 4810: loss 0.1302, time 4.14s
+step 4820: loss 0.1106, time 3.95s
+step 4830: loss 0.1132, time 4.00s
+step 4840: loss 0.0837, time 3.94s
+step 4850: loss 0.1239, time 3.96s
+step 4860: loss 0.0696, time 3.92s
+step 4870: loss 0.0631, time 3.89s
+step 4880: loss 0.0860, time 4.00s
+step 4890: loss 0.1247, time 3.91s
+step 4900: loss 0.1162, time 3.93s
+step 4910: loss 0.1161, time 4.00s
+step 4920: loss 0.1125, time 3.92s
+step 4930: loss 0.0661, time 4.14s
+step 4940: loss 0.0737, time 4.78s
+step 4950: loss 0.1170, time 4.48s
+step 4960: loss 0.0836, time 4.68s
+step 4970: loss 0.1247, time 4.38s
+step 4980: loss 0.0984, time 4.47s
+step 4990: loss 0.1310, time 4.01s
+step 5000: loss 0.0776, time 4.21s
+Generated: <|endoftext|>Nor neighbour no envy, Nor self-same sorrow that burns with all eyes Did not let Edward live. Why I am gone, Like
+Saving checkpoint_5000.pt...
+Checkpoint saved.
+
+--- Resuming Training ---
+Resumed from step 5000
+Training for 50 more steps...
+step 5001: loss 0.0870
+step 5002: loss 0.0869
+step 5003: loss 0.1026
+step 5004: loss 0.0880
+step 5005: loss 0.0790
+step 5006: loss 0.1772
+step 5007: loss 0.1181
+step 5008: loss 0.1134
+step 5009: loss 0.0926
+step 5010: loss 0.0918
+step 5011: loss 0.1106
+step 5012: loss 0.1163
+step 5013: loss 0.0860
+step 5014: loss 0.0958
+step 5015: loss 0.1161
+step 5016: loss 0.0794
+step 5017: loss 0.0904
+step 5018: loss 0.1180
+step 5019: loss 0.0999
+step 5020: loss 0.0658
+step 5021: loss 0.1019
+step 5022: loss 0.1021
+step 5023: loss 0.1155
+step 5024: loss 0.0749
+step 5025: loss 0.0919
+step 5026: loss 0.0994
+step 5027: loss 0.1110
+step 5028: loss 0.1060
+step 5029: loss 0.1132
+step 5030: loss 0.0820
+step 5031: loss 0.1110
+step 5032: loss 0.0726
+step 5033: loss 0.0898
+step 5034: loss 0.0963
+step 5035: loss 0.0731
+step 5036: loss 0.1102
+step 5037: loss 0.0743
+step 5038: loss 0.0944
+step 5039: loss 0.1512
+step 5040: loss 0.1024
+step 5041: loss 0.0809
+step 5042: loss 0.0762
+step 5043: loss 0.0983
+step 5044: loss 0.0821
+step 5045: loss 0.1262
+step 5046: loss 0.0894
+step 5047: loss 0.1056
+step 5048: loss 0.1016
+step 5049: loss 0.1089
+step 5050: loss 0.0820
+Training complete.
+Final model saved to final_model.pt
